@@ -1,0 +1,13 @@
+htm{% extends 'todo_app/base.html' %}
+
+{% block content %}
+    <h2>{{ todo.title }}</h2>
+    <p>{{ todo.description }}</p>
+    <p>Completed: {{ todo.completed | yesno:"Yes,No" }}</p>
+    <p>Created at: {{ todo.created_at }}</p>
+    <p>View count: {{ todo.view_count }}</p>
+    <p>Deletion Key: {{ todo.deletion_key }}</p>
+    <a href="{% url 'todo_update' todo.pk %}">Edit</a>
+    <a href="{% url 'todo_delete' todo.pk %}">Delete</a>
+    <a href="{% url 'todo_list' %}">Back to List</a>
+{% endblock %}

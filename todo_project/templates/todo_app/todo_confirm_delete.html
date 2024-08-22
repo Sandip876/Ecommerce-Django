@@ -1,0 +1,12 @@
+{% extends 'todo_app/base.html' %}
+
+{% block content %}
+    <h2>Confirm Delete</h2>
+    <p>Are you sure you want to delete "{{ todo.title }}"?</p>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Confirm</button>
+    </form>
+    <a href="{% url 'todo_detail' todo.pk %}">Cancel</a>
+{% endblock content %}
